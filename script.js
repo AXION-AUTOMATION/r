@@ -6,25 +6,27 @@ AOS.init({
 });
 
 // Custom cursor
-const cursor = document.querySelector('.cursor');
-const follower = document.querySelector('.cursor-follower');
-let mouseX = 0, mouseY = 0, posX = 0, posY = 0;
+document.addEventListener('DOMContentLoaded', function() {
+    const cursor = document.querySelector('.cursor');
+    const follower = document.querySelector('.cursor-follower');
+    let mouseX = 0, mouseY = 0, posX = 0, posY = 0;
 
-document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    cursor.style.left = mouseX + 'px';
-    cursor.style.top = mouseY + 'px';
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursor.style.left = mouseX + 'px';
+        cursor.style.top = mouseY + 'px';
+    });
+
+    function animateFollower() {
+        posX += (mouseX - posX) / 8;
+        posY += (mouseY - posY) / 8;
+        follower.style.left = posX + 'px';
+        follower.style.top = posY + 'px';
+        requestAnimationFrame(animateFollower);
+    }
+    animateFollower();
 });
-
-function animateFollower() {
-    posX += (mouseX - posX) / 8;
-    posY += (mouseY - posY) / 8;
-    follower.style.left = posX + 'px';
-    follower.style.top = posY + 'px';
-    requestAnimationFrame(animateFollower);
-}
-animateFollower();
 
 // Handle cursor click state
 document.addEventListener('mousedown', () => {
