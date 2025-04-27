@@ -11,6 +11,34 @@
             background: var(--bg-color);
             color: var(--text-color);
         }
+        .cursor {
+            position: fixed;
+            width: 14px;
+            height: 14px;
+            background: #fff;
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: 0 0 8px 2px rgba(0,0,0,0.25);
+            z-index: 9999;
+            transition: transform 0.2s ease;
+            mix-blend-mode: difference;
+            left: 0;
+            top: 0;
+            opacity: 1;
+        }
+        .abstract-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            background: linear-gradient(120deg, #a78bfa 0%, #7c3aed 100%);
+            opacity: 0.12;
+            animation: bgMove 12s ease-in-out infinite alternate;
+        }
+        @keyframes bgMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
         .results-hero {
             display: flex;
             flex-direction: row;
@@ -19,6 +47,7 @@
             min-height: 80vh;
             gap: 3rem;
             padding: 5rem 1rem 2rem 1rem;
+            position: relative;
         }
         .results-image-card {
             background: rgba(36, 20, 60, 0.35);
@@ -92,6 +121,15 @@
             box-shadow: 0 12px 40px rgba(124,58,237,0.28);
             transform: translateY(-2px) scale(1.04);
         }
+        .fade-in {
+            animation: fadeIn 1.2s cubic-bezier(.4,0,.2,1);
+        }
+        .slide-in-down {
+            animation: slideInDown 1.2s cubic-bezier(.4,0,.2,1);
+        }
+        .slide-in-up {
+            animation: slideInUp 1.2s cubic-bezier(.4,0,.2,1);
+        }
         @media (max-width: 900px) {
             .results-hero {
                 flex-direction: column;
@@ -125,12 +163,16 @@
             from { opacity: 0; transform: translateY(60px); }
             to { opacity: 1; transform: none; }
         }
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-60px); }
+            to { opacity: 1; transform: none; }
+        }
     </style>
 </head>
 <body>
-    <div class="cursor"><div class="dot"></div></div>
+    <div class="cursor"></div>
     <div class="abstract-bg"></div>
-    <header>
+    <header class="slide-in-down">
         <nav>
             <div class="logo" style="cursor:pointer;">
                 <a href="/" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none;">
@@ -147,7 +189,7 @@
         </nav>
     </header>
     <main>
-        <section class="results-hero">
+        <section class="results-hero fade-in">
             <div class="results-image-card">
                 <img src="/1.png" alt="Client Result Screenshot">
             </div>
@@ -158,7 +200,7 @@
             </div>
         </section>
     </main>
-    <footer>
+    <footer class="slide-in-up">
         <p>rohmarketing.xyz &copy; 2025. All rights reserved.</p>
     </footer>
     <script src="/script.js"></script>
