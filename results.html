@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Results | rohmarketing.xyz</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+        .results-hero {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            gap: 3rem;
+            padding: 5rem 1rem 2rem 1rem;
+        }
+        .results-image-card {
+            background: rgba(36, 20, 60, 0.35);
+            border-radius: 2rem;
+            box-shadow: 0 8px 40px 0 rgba(124,58,237,0.18), 0 1.5px 8px rgba(0,0,0,0.08);
+            backdrop-filter: blur(18px) saturate(1.5);
+            padding: 2rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: box-shadow 0.3s, transform 0.2s;
+            animation: fadeIn 1.2s cubic-bezier(.4,0,.2,1);
+        }
+        .results-image-card img {
+            width: 340px;
+            height: 680px;
+            max-width: 90vw;
+            object-fit: cover;
+            border-radius: 1.5rem;
+            box-shadow: 0 0 32px 8px #a78bfa55, 0 4px 32px rgba(124,58,237,0.18);
+            background: #222;
+            animation: popIn 1.2s cubic-bezier(.4,0,.2,1);
+        }
+        .results-text {
+            max-width: 420px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            align-items: flex-start;
+        }
+        .results-headline {
+            font-size: 2.3rem;
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .results-desc {
+            font-size: 1.25rem;
+            color: #e0e0ff;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+        @media (max-width: 900px) {
+            .results-hero {
+                flex-direction: column;
+                gap: 2.5rem;
+                min-height: unset;
+                padding: 3rem 0.5rem 2rem 0.5rem;
+            }
+            .results-image-card img {
+                width: 90vw;
+                height: auto;
+                max-width: 340px;
+            }
+            .results-text {
+                align-items: center;
+                text-align: center;
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: none; }
+        }
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor">
+        <div class="dot"></div>
+    </div>
+    <div class="abstract-bg"></div>
+    <header>
+        <nav>
+            <div class="logo" style="cursor:pointer;">
+                <a href="/" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none;">
+                    <img src="/logo-purple.png" alt="Roh Marketing Logo">
+                    <span>rohmarketing.xyz</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="/index.html#services" class="nav-link">Services</a>
+                <a href="/index.html#book" class="nav-link">Book a Call</a>
+                <a href="/index.html#contact" class="nav-link">Contact</a>
+                <a href="/results.html" class="nav-link" style="font-weight:800;">Results</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="results-hero">
+            <div class="results-image-card">
+                <img src="/1.png" alt="Client Result Screenshot">
+            </div>
+            <div class="results-text">
+                <div class="results-headline">$XX,XXX+ Revenue Generated</div>
+                <div class="results-desc">This is just one of the many results we've achieved for our clients. We specialize in scaling brands with paid ads, email/SMS, and conversion optimization. <br><br><strong>More results coming soon!</strong></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>rohmarketing.xyz &copy; 2025. All rights reserved.</p>
+    </footer>
+    <script src="/script.js"></script>
+</body>
+</html> 
