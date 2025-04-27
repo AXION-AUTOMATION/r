@@ -33,6 +33,10 @@
             transition: box-shadow 0.3s, transform 0.2s;
             animation: fadeIn 1.2s cubic-bezier(.4,0,.2,1);
         }
+        .results-image-card:hover {
+            box-shadow: 0 16px 64px 0 rgba(124,58,237,0.28), 0 3px 16px rgba(0,0,0,0.12);
+            transform: scale(1.025);
+        }
         .results-image-card img {
             width: 340px;
             height: 680px;
@@ -51,18 +55,42 @@
             align-items: flex-start;
         }
         .results-headline {
-            font-size: 2.3rem;
+            font-size: 2.1rem;
             font-weight: 900;
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 0.5rem;
+            animation: slideInRight 1.2s 0.2s cubic-bezier(.4,0,.2,1) both;
         }
         .results-desc {
-            font-size: 1.25rem;
+            font-size: 1.18rem;
             color: #e0e0ff;
             font-weight: 500;
             line-height: 1.5;
+            animation: fadeIn 1.2s 0.5s cubic-bezier(.4,0,.2,1) both;
+        }
+        .results-cta-button {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 1rem 2.5rem;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            background: var(--gradient);
+            border: none;
+            border-radius: 50px;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 8px 32px rgba(124,58,237,0.18);
+            transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+            cursor: pointer;
+            animation: slideInUp 1.2s 0.8s cubic-bezier(.4,0,.2,1) both;
+        }
+        .results-cta-button:hover {
+            background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+            box-shadow: 0 12px 40px rgba(124,58,237,0.28);
+            transform: translateY(-2px) scale(1.04);
         }
         @media (max-width: 900px) {
             .results-hero {
@@ -89,12 +117,18 @@
             from { opacity: 0; transform: scale(0.95); }
             to { opacity: 1; transform: scale(1); }
         }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(60px); }
+            to { opacity: 1; transform: none; }
+        }
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: none; }
+        }
     </style>
 </head>
 <body>
-    <div class="cursor">
-        <div class="dot"></div>
-    </div>
+    <div class="cursor"><div class="dot"></div></div>
     <div class="abstract-bg"></div>
     <header>
         <nav>
@@ -118,8 +152,9 @@
                 <img src="/1.png" alt="Client Result Screenshot">
             </div>
             <div class="results-text">
-                <div class="results-headline">$XX,XXX+ Revenue Generated</div>
-                <div class="results-desc">This is just one of the many results we've achieved for our clients. We specialize in scaling brands with paid ads, email/SMS, and conversion optimization. <br><br><strong>More results coming soon!</strong></div>
+                <div class="results-headline">$6,245 generated for a clothing brand in ONE day</div>
+                <div class="results-desc">This is a real result for one of our clients. Maybe you can be the next. Book a free call below!</div>
+                <a href="/index.html#book" class="results-cta-button">Book a Free Call</a>
             </div>
         </section>
     </main>
