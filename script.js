@@ -7,7 +7,6 @@ AOS.init({
 
 // Custom cursor
 const cursor = document.querySelector('.cursor');
-const dot = document.querySelector('.cursor .dot');
 
 document.addEventListener('mousemove', (e) => {
     cursor.style.left = e.clientX + 'px';
@@ -67,6 +66,21 @@ document.querySelectorAll('a.cta-button[href="#calendly-embed"]').forEach(btn =>
                 });
             }
         });
+    }
+});
+
+// Auto-open Calendly if URL hash is #calendly-embed
+window.addEventListener('DOMContentLoaded', function() {
+    if (window.location.hash === '#calendly-embed') {
+        const calendlyContainer = document.querySelector('.calendly-container');
+        const calendlyEmbed = document.getElementById('calendly-embed');
+        if (calendlyContainer) calendlyContainer.style.display = 'block';
+        if (calendlyEmbed) {
+            calendlyEmbed.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
     }
 });
 
