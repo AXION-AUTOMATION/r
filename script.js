@@ -5,10 +5,10 @@ AOS.init({
     once: true
 });
 
-// Custom cursor
+const cursor = document.querySelector('.cursor');
+const follower = document.querySelector('.cursor-follower');
+
 document.addEventListener('DOMContentLoaded', function() {
-    const cursor = document.querySelector('.cursor');
-    const follower = document.querySelector('.cursor-follower');
     let mouseX = 0, mouseY = 0, posX = 0, posY = 0;
 
     if (cursor && follower) {
@@ -27,6 +27,17 @@ document.addEventListener('DOMContentLoaded', function() {
             requestAnimationFrame(animateFollower);
         }
         animateFollower();
+
+        // Hide cursor on Calendly iframe
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.closest('.calendly-inline-widget')) {
+                cursor.style.display = 'none';
+                follower.style.display = 'none';
+            } else {
+                cursor.style.display = 'block';
+                follower.style.display = 'block';
+            }
+        });
     }
 });
 
@@ -37,15 +48,6 @@ document.addEventListener('mousedown', () => {
 
 document.addEventListener('mouseup', () => {
     document.body.classList.remove('clicked');
-});
-
-// Hide cursor on Calendly iframe
-document.addEventListener('mouseover', (e) => {
-    if (e.target.closest('.calendly-inline-widget')) {
-        cursor.style.display = 'none';
-    } else {
-        cursor.style.display = 'block';
-    }
 });
 
 // Smooth scrolling
