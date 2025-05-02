@@ -158,6 +158,7 @@ nav {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    padding: 0 1rem;
 }
 
 .service-card {
@@ -166,6 +167,7 @@ nav {
     border-radius: 1rem;
     padding: 2rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
 .service-card:hover {
@@ -175,6 +177,8 @@ nav {
 
 .service-icon {
     margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
 }
 
 .service-card h3 {
@@ -265,6 +269,14 @@ footer {
         gap: 1rem;
     }
 
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .logo img {
+        height: 2rem;
+    }
+
     .hero h1 {
         font-size: 2.5rem;
     }
@@ -275,10 +287,49 @@ footer {
 
     .services-grid {
         grid-template-columns: 1fr;
+        padding: 0;
     }
 
     .service-card {
         padding: 1.5rem;
+    }
+
+    .results-hero {
+        padding: 2rem 0;
+    }
+
+    .results-image-card img {
+        max-width: 280px;
+    }
+
+    .results-headline {
+        font-size: 2rem;
+    }
+
+    .results-desc {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .results-headline {
+        font-size: 1.8rem;
     }
 }
 
@@ -286,6 +337,10 @@ footer {
 .results-hero {
     text-align: center;
     padding: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .results-image-card {
@@ -293,10 +348,15 @@ footer {
 }
 
 .results-image-card img {
-    max-width: 100%;
+    max-width: 350px;
+    width: 100%;
     height: auto;
     border-radius: 1rem;
     box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+}
+
+.results-text {
+    max-width: 420px;
 }
 
 .results-headline {
